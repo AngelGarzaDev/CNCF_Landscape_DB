@@ -19,7 +19,7 @@ csv_file_path = 'output.csv'
 # Open the CSV file for writing
 with open(csv_file_path, 'w', newline='') as csvfile:
     # Define the CSV header
-    fieldnames = ['name', 'homepage_url', 'repo_url', 'logo', 'twitter', 'crunchbase']
+    fieldnames = ['Name', 'Homepage URL', 'Repo URL', 'Project Status', 'Logo', 'Twitter', 'Crunchbase']
     
     # Create the CSV writer
     csv_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -32,12 +32,13 @@ with open(csv_file_path, 'w', newline='') as csvfile:
         for subcategory in category['subcategories']:
             for item in subcategory['items']:
                 csv_writer.writerow({
-                    'name': item['name'],
-                    'homepage_url': item['homepage_url'],
-                    'repo_url': item.get('repo_url', ''),
-                    'logo': item.get('logo', ''),
-                    'twitter': item.get('twitter', ''),
-                    'crunchbase': item.get('crunchbase', '')
+                    'Name': item['name'],
+                    'Homepage URL': item['homepage_url'],
+                    'Repo URL': item.get('repo_url', ''),
+                    'Logo': item.get('logo', ''),
+                    'Twitter': item.get('twitter', ''),
+                    'Crunchbase': item.get('crunchbase', ''),
+                    'Project Status': item.get('project', '')
                 })
 
 print(f'CSV file "{csv_file_path}" created successfully.')
