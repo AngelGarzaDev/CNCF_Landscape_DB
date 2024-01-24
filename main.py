@@ -1,8 +1,14 @@
 import yaml
 import csv
+import urllib.request
+
+# Get YAML file
+url = 'https://github.com/cncf/landscape/raw/master/landscape.yml'
+destination = 'input.yaml'
+urllib.request.urlretrieve(url, destination)
 
 # Open the YAML file
-with open('landscape.yml') as f:
+with open('input.yaml') as f:
 
     # Load YAML data
     data = yaml.safe_load(f)
