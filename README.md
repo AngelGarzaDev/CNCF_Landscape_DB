@@ -17,4 +17,4 @@ Collect historical data. Currently we only grab the mose recent version of the C
 ## How to Use
 ```git clone https://github.com/AngelGarzaDev/CNCF_Landscape_DB.git && cd CNCF_Landscape_DB```
 
-```pip install -r requirements.txt && python your_script.py```
+```pip install -r requirements.txt && python main.py```
