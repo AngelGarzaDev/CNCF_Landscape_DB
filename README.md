@@ -7,6 +7,9 @@ My python and data skills are still in their infancy, so any suggestions or impr
 
 ## To Do
 Explore a more well featured alternative to CSV
+
 Extract the "Extra" sub dictionaries into their own columns
+
 Explore the potential of creating an interactive dashboard
+
 Collect historical data. Currently we only grab the mose recent version of the CNCF Landscape
