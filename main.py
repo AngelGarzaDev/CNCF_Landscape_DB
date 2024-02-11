@@ -19,7 +19,7 @@ csv_file_path = 'output.csv'
 # Open the CSV file for writing
 with open(csv_file_path, 'w', newline='') as csvfile:
     # Define the CSV header
-    fieldnames = ['Name', 'Homepage URL', 'Repo URL', 'Project Status', 'Logo', 'Twitter', 'Crunchbase', 'Date Joined', 'Description', 'Extra']
+    fieldnames = ['Name', 'Homepage URL', 'Repo URL', 'Project Status', 'Logo', 'Twitter', 'Crunchbase', 'Date Joined', 'Description', 'Category', 'Subcategory', 'Extra']
     
     # Create the CSV writer
     csv_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -29,9 +29,13 @@ with open(csv_file_path, 'w', newline='') as csvfile:
     
     # Iterate through the data and write rows to the CSV file
     for category in data['landscape']:
-        for subcategory in category['subcategories']:
-            for item in subcategory['items']:
+        category_name = category.get('name', '')  # Get the category name
+        for subcategory in category.get('subcategories', []):
+            subcategory_name = subcategory.get('name', '')  # Get the subcategory name
+            for item in subcategory.get('items', []):
                 csv_writer.writerow({
+                    'Category': category_name,
+                    'Subcategory': subcategory_name,
                     'Name': item['name'],
                     'Homepage URL': item['homepage_url'],
                     'Repo URL': item.get('repo_url', ''),
